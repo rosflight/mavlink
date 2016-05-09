@@ -250,8 +250,11 @@ def process_file(filename, timeshift):
     while True:
         msg = mlog.recv_match(args.condition)
         if msg is None: break
-        tdays = matplotlib.dates.date2num(datetime.datetime.fromtimestamp(msg._timestamp+timeshift))
-        add_data(tdays, msg, mlog.messages, mlog.flightmode)
+        try:
+            tdays = matplotlib.dates.date2num(datetime.datetime.fromtimestamp(msg._timestamp+timeshift))
+            add_data(tdays, msg, mlog.messages, mlog.flightmode)
+        except Exception:
+            pass
 
 if len(filenames) == 0:
     print("No files to process")
