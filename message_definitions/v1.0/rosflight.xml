@@ -145,5 +145,8 @@
       <message id="192" name="ROSFLIGHT_VERSION">
         <field type="char[50]" name="version"/>
       </message>
+      <message id="193" name="LIDAR">
+          <field type="float" name="altitude">Calculated Altitude (m)</field>
+        </message>
     </messages>
 </mavlink>
