@@ -262,5 +262,13 @@
 		<field type="float" name="battery_voltage"/> <!-- V -->
 		<field type="float" name="battery_current"/> <!-- A -->
 	</message>
+	<message id="200" name="ROSFLIGHT_CONFIG_REQUEST">
+		<field type="uint8_t" name="device"/>
+	</message>
+	<!-- Used for both setting a value from rosflight_io, and sending the current value from the firmware -->
+	<message id="201" name="ROSFLIGHT_CONFIG">
+		<field type="uint8_t" name="device"/>
+		<field type="uint8_t" name="config"/>
+	</message>
     </messages>
 </mavlink>
