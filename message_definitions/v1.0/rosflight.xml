@@ -111,6 +111,7 @@
             <field type="float" name="zmag">Magnetic field along Z axis</field>
         </message>
         <message id="183" name="SMALL_BARO">
+		<!-- TODO -->
             <field type="float" name="altitude">Calculated Altitude (m)</field>
             <field type="float" name="pressure">Measured Differential Pressure (Pa)</field>
             <field type="float" name="temperature">Measured Temperature (K)</field>
@@ -269,6 +270,16 @@
 	<message id="201" name="ROSFLIGHT_CONFIG">
 		<field type="uint8_t" name="device"/>
 		<field type="uint8_t" name="config"/>
+	</message>
+	<message id="202" name="ROSFLIGHT_CONFIG_INFO">
+		<field type="uint8_t" name="device"/>
+		<field type="uint8_t" name="max_value"/>
+		<field type="uint8_t[20]" name="name"/>
+	</message>
+	<message id="203" name="ROSFLIGHT_CONFIG_STATUS">
+		<field type="uint8_t" name="device"/>
+		<field type="uint8_t" name="success" /> <!-- boolean -->
+		<field type="uint8_t[50]" name="error_message"/>
 	</message>
     </messages>
 </mavlink>
