@@ -278,7 +278,8 @@
 	</message>
 	<message id="203" name="ROSFLIGHT_CONFIG_STATUS">
 		<field type="uint8_t" name="device"/>
-		<field type="uint8_t" name="success" /> <!-- boolean -->
+		<field type="uint8_t" name="success"/> <!-- boolean -->
+		<field type="uint8_t" name="reboot_required"/> <!-- boolean -->
 		<field type="uint8_t[50]" name="error_message"/>
 	</message>
     </messages>
