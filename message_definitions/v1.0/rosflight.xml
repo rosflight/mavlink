@@ -274,6 +274,7 @@
 	<message id="202" name="ROSFLIGHT_CONFIG_INFO">
 		<field type="uint8_t" name="device"/>
 		<field type="uint8_t" name="max_value"/>
+		<!-- 0 is assumed to be both the minumum value and the default -->
 		<field type="uint8_t[20]" name="name"/>
 	</message>
 	<message id="203" name="ROSFLIGHT_CONFIG_STATUS">
