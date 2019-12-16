@@ -263,6 +263,7 @@
 		<field type="float" name="battery_voltage"/> <!-- V -->
 		<field type="float" name="battery_current"/> <!-- A -->
 	</message>
+	<!-- request the current configuration for a device. The firmware returns a ROSFLIGHT_CONFIG message -->
 	<message id="200" name="ROSFLIGHT_CONFIG_REQUEST">
 		<field type="uint8_t" name="device"/>
 	</message>
@@ -271,13 +272,18 @@
 		<field type="uint8_t" name="device"/>
 		<field type="uint8_t" name="config"/>
 	</message>
-	<message id="202" name="ROSFLIGHT_CONFIG_INFO">
+	<message id="202" name="ROSFLIGHT_DEVICE_INFO">
 		<field type="uint8_t" name="device"/>
 		<field type="uint8_t" name="max_value"/>
 		<!-- 0 is assumed to be both the minumum value and the default -->
 		<field type="uint8_t[20]" name="name"/>
 	</message>
-	<message id="203" name="ROSFLIGHT_CONFIG_STATUS">
+	<message id="203" name="ROSFLIGHT_CONFIG_INFO">
+		<field type="uint8_t" name="device"/>
+		<field type="uint8_t" name="config"/>
+		<field type="uint8_t[20]" name="name"/>
+	</message>
+	<message id="204" name="ROSFLIGHT_CONFIG_STATUS">
 		<field type="uint8_t" name="device"/>
 		<field type="uint8_t" name="success"/> <!-- boolean -->
 		<field type="uint8_t" name="reboot_required"/> <!-- boolean -->
