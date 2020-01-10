@@ -16,6 +16,7 @@
             <entry value="9" name="ROSFLIGHT_CMD_REBOOT_TO_BOOTLOADER"/>
             <entry value="10" name="ROSFLIGHT_CMD_SEND_VERSION"/>
             <entry value="11" name="ROSFLIGHT_CMD_RESET_ORIGIN"/>
+            <entry value="12" name="ROSFLIGHT_CMD_SEND_ALL_CONFIG_INFOS"/>
         </enum>
         <enum name="ROSFLIGHT_AUX_CMD_TYPE">
           <entry value="0" name="DISABLED"/>
