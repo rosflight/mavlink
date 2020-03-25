@@ -265,7 +265,6 @@
 		<field type="float" name="battery_current"/> <!-- A -->
 	</message>
 	<!-- request the current configuration for a device. The firmware returns a ROSFLIGHT_CONFIG message -->
-	<!-- if device is 255, then instead starts sending device and config info -->
 	<message id="200" name="ROSFLIGHT_CONFIG_REQUEST">
 		<field type="uint8_t" name="device"/>
 	</message>
@@ -279,6 +278,7 @@
 		<field type="uint8_t" name="max_value"/>
 		<!-- By convention, the minimum value and the default are 0 -->
 		<field type="uint8_t[20]" name="name"/>
+		<field type="uint8_t" name="num_devices"/>
 	</message>
 	<message id="203" name="ROSFLIGHT_CONFIG_INFO">
 		<field type="uint8_t" name="device"/>
