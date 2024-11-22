@@ -63,6 +63,12 @@
             <entry value="0x08" name="IGNORE_VALUE4">
                 <description>Field value4 should be ignored</description>
             </entry>
+            <entry value="0x16" name="IGNORE_VALUE5">
+                <description>Field value5 should be ignored</description>
+            </entry>
+            <entry value="0x32" name="IGNORE_VALUE6">
+                <description>Field value6 should be ignored</description>
+            </entry>
         </enum>
         <enum name="ROSFLIGHT_ERROR_CODE">
             <entry value="0x00" name="ROSFLIGHT_ERROR_NONE"/>
@@ -97,10 +103,12 @@
         <message id="180" name="OFFBOARD_CONTROL">
             <field type="uint8_t" name="mode" enum="OFFBOARD_CONTROL_MODE">Offboard control mode, see OFFBOARD_CONTROL_MODE</field>
             <field type="uint8_t" name="ignore" enum="OFFBOARD_CONTROL_IGNORE">Bitfield specifying which fields should be ignored, see OFFBOARD_CONTROL_IGNORE</field>
-            <field type="float" name="x">x control channel interpreted according to mode</field>
-            <field type="float" name="y">y control channel, interpreted according to mode</field>
-            <field type="float" name="z">z control channel, interpreted according to mode</field>
-            <field type="float" name="F">F control channel, interpreted according to mode</field>
+            <field type="float" name="Qx">Qx control channel interpreted according to mode</field>
+            <field type="float" name="Qy">Qy control channel, interpreted according to mode</field>
+            <field type="float" name="Qz">Qz control channel, interpreted according to mode</field>
+            <field type="float" name="Fx">Fx control channel, interpreted according to mode</field>
+            <field type="float" name="Fy">Fy control channel, interpreted according to mode</field>
+            <field type="float" name="Fz">Fz control channel, interpreted according to mode</field>
         </message>
         <message id="181" name="SMALL_IMU">
             <field type="uint64_t" name="time_boot_us">Measurement timestamp as microseconds since boot</field>
@@ -175,7 +183,7 @@
             <field type="int16_t" name="num_errors"/>
             <field type="int16_t" name="loop_time_us"/>
         </message>
-        <message id="192" name="ROSFLIGHT_VERSION">
+        <message id="205" name="ROSFLIGHT_VERSION">
             <field type="char[50]" name="version"/>
         </message>
         <message id="193" name="ROSFLIGHT_AUX_CMD">
