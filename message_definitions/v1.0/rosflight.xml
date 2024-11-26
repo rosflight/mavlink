@@ -151,10 +151,12 @@
             <field type="char[10]" name="name">Name of the command struct</field>
             <field type="uint8_t" name="type" enum="OFFBOARD_CONTROL_MODE">Type of command struct</field>
             <field type="uint8_t" name="ignore" enum="OFFBOARD_CONTROL_IGNORE">Type of command struct</field>
-            <field type="float" name="x">x value in the command struct</field>
-            <field type="float" name="y">y value in the command struct</field>
-            <field type="float" name="z">z value in the command struct</field>
-            <field type="float" name="F">F value in the command struct</field>
+            <field type="float" name="qx">Qx value in the command struct</field>
+            <field type="float" name="qy">Qy value in the command struct</field>
+            <field type="float" name="qz">Qz value in the command struct</field>
+            <field type="float" name="Fx">Fx value in the command struct</field>
+            <field type="float" name="Fy">Fy value in the command struct</field>
+            <field type="float" name="Fz">Fz value in the command struct</field>
         </message>
         <message id="187" name="SMALL_RANGE">
             <field type="uint8_t" name="type" enum="ROSFLIGHT_RANGE_TYPE">Sensor type</field>
