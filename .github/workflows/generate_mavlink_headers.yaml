@@ -18,9 +18,9 @@ jobs:
     steps:
       - name: Determine target branch
         run: |
-          if [[ "${{ github.event_name }}" == "push" ]]; then
+          if [ "${{ github.event_name }}" == "push" ]; then
             echo "TARGET_BRANCH=master" >> $GITHUB_ENV
-          elif [[ "${{ github.event.inputs.source_branch }}" == "master" ]]; then
+          elif [ "${{ github.event.inputs.source_branch }}" == "master" ]; then
             echo "TARGET_BRANCH=master" >> $GITHUB_ENV
           else
             echo "TARGET_BRANCH=feature/${{ github.event.inputs.source_branch }}" >> $GITHUB_ENV
