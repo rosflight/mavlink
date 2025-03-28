@@ -85,10 +85,12 @@
             <entry value="1" name="ROSFLIGHT_RANGE_LIDAR"/>
         </enum>
 	<enum name="GNSS_FIX_TYPE">
-		<entry value="0" name="GNSS_FIX_NO_FIX"/>
-		<entry value="1" name="GNSS_FIX_FIX"/>
-		<entry value="2" name="GNSS_FIX_RTK_FLOAT"/>
-		<entry value="3" name="GNSS_FIX_RTK_FIXED"/>
+        <entry value="0" name="NO_FIX"/>
+        <entry value="1" name="DEAD_RECKONING_ONLY"/>
+        <entry value="2" name="2D_FIX"/>
+        <entry value="3" name="3D_FIX"/>
+        <entry value="4" name="GNSS_PLUS_DEAD_RECKONING"/>
+        <entry value="5" name="TIME_FIX_ONLY"/>
 	</enum>
 	<enum name="UBLOX_FIX_TYPE">
 		<entry value="0" name="NO_FIX"/>
@@ -221,12 +223,16 @@
 	    <field type="uint32_t" name="doRearm"/>
 	</message>
 	<message id="197" name="ROSFLIGHT_GNSS">
-		<!-- time_of_week is only for determining which packets where calculated at the same time.
-		     Use the time and nanos field to get GPS time. -->
-		<field type="uint32_t" name="time_of_week"/>
-		<field type="uint8_t" name="fix_type" enum="GNSS_FIX_TYPE"/>
-		<field type="uint64_t" name="time"/> <!--unix time, in seconds -->
+		<field type="uint64_t" name="seconds"/> <!--unix time, in seconds -->
 		<field type="uint64_t" name="nanos"/>
+		<field type="uint8_t" name="fix_type" enum="GNSS_FIX_TYPE"/>
+		<field type="uint16_t" name="year"/>
+		<field type="uint8_t" name="month"/>
+		<field type="uint8_t" name="day"/>
+		<field type="uint8_t" name="hour"/>
+		<field type="uint8_t" name="min"/>
+		<field type="uint8_t" name="sec"/>
+		<field type="uint8_t" name="num_sat"/>
 		<field type="int32_t" name="lat"/> <!-- deg*10^-7 -->
 		<field type="int32_t" name="lon"/> <!-- deg*10^-7 -->
 		<field type="int32_t" name="height"/> <!-- mm -->
@@ -235,46 +241,7 @@
 		<field type="int32_t" name="vel_d"/> <!-- mm/s -->
 		<field type="uint32_t" name="h_acc"/> <!-- mm -->
 		<field type="uint32_t" name="v_acc"/> <!-- mm -->
-		<field type="int32_t" name="ecef_x"/> <!-- cm -->
-		<field type="int32_t" name="ecef_y"/> <!-- cm -->
-		<field type="int32_t" name="ecef_z"/> <!-- cm -->
-		<field type="uint32_t" name="p_acc"/> <!-- cm -->
-		<field type="int32_t" name="ecef_v_x"/> <!-- cm/s -->
-		<field type="int32_t" name="ecef_v_y"/> <!-- cm/s -->
-		<field type="int32_t" name="ecef_v_z"/> <!-- cm/s -->
-		<field type="uint32_t" name="s_acc"/> <!-- cm/s -->
-		<field type="uint64_t" name="rosflight_timestamp"/> <!-- microseconds -->
-	</message>
-	<message id="198" name="ROSFLIGHT_GNSS_FULL">
-		<!-- time_of_week is only for determining which packets where calculated at the same time.
-		     Use the various time and date fields to get GPS time. -->
-		<field type="uint32_t" name="time_of_week"/>
-		<field type="uint16_t" name="year"/>
-		<field type="uint8_t" name="month"/>
-		<field type="uint8_t" name="day"/>
-		<field type="uint8_t" name="hour"/>
-		<field type="uint8_t" name="min"/>
-		<field type="uint8_t" name="sec"/>
-		<field type="uint8_t" name="valid"/>
-		<field type="uint32_t" name="t_acc"/> <!-- ns -->
-		<field type="int32_t" name="nano"/> <!-- ns -->
-		<field type="uint8_t" name="fix_type" enum="UBLOX_FIX_TYPE"/>
-		<field type="uint8_t" name="num_sat"/>
-		<field type="int32_t" name="lon"/> <!-- deg *10^-7 -->
-		<field type="int32_t" name="lat"/> <!-- deg *10^-7 -->
-		<field type="int32_t" name="height"/> <!-- mm above elipsoid -->
-		<field type="int32_t" name="height_msl"/> <!-- mm above mean sea level -->
-		<field type="uint32_t" name="h_acc"/> <!-- mm -->
-		<field type="uint32_t" name="v_acc"/> <!-- mm -->
-		<field type="int32_t" name="vel_n"/> <!-- mm/s -->
-		<field type="int32_t" name="vel_e"/> <!-- mm/s -->
-		<field type="int32_t" name="vel_d"/> <!-- mm/s -->
-		<field type="int32_t" name="g_speed"/> <!-- mm/s -->
-		<field type="int32_t" name="head_mot"/> <!--deg *10^-5 -->
-		<field type="uint32_t" name="s_acc"/> <!--mm/s-->
-		<field type="uint32_t" name="head_acc"/> <!-- deg * 10^-5 -->
-		<field type="uint16_t" name="p_dop"/> <!-- *.01 -->
-		<field type="uint64_t" name="rosflight_timestamp"/> <!-- microseconds -->
+		<field type="uint32_t" name="vel_acc"/> <!-- mm -->
 	</message>
 	<message id="199" name="ROSFLIGHT_BATTERY_STATUS">
 		<field type="float" name="battery_voltage"/> <!-- V -->
