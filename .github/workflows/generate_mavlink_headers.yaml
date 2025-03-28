@@ -4,14 +4,29 @@ on:
   push:
     branches:
       - 'master'
+  workflow_dispatch:
+    inputs:
+      source_branch:
+        description: 'Branch to compile and push'
+        required: true
+        default: 'master'
 
 jobs:
   generate-headers:
     runs-on: ubuntu-22.04
 
     steps:
+      - name: Determine target branch
+        run: |
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            echo "TARGET_BRANCH=master" >> $GITHUB_ENV
+          elif [[ "${{ github.event.inputs.source_branch }}" == "master" ]]; then
+            echo "TARGET_BRANCH=master" >> $GITHUB_ENV
+          else
+            echo "TARGET_BRANCH=feature/${{ github.event.inputs.source_branch }}" >> $GITHUB_ENV
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.event_name == 'push' && 'master' || github.event.inputs.source_branch }}
           path: mavlink
       - uses: actions/checkout@v4
         with: 
@@ -37,8 +52,10 @@ jobs:
       - name: Push message headers to mavlink_c_library
         run: |
           cd mavlink_c_library
-          git config user.name 'github-actions'
-          git config user.email 'github-actions@github.com'
-          git commit -am "${{ github.event.head_commit.message }}"
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
           git remote add target git@github.com:rosflight/mavlink_c_library.git
+          git checkout -B $TARGET_BRANCH
+          git push --set-upstream target $TARGET_BRANCH
+          git commit -am "${{ github.event.head_commit.message }}"
           git push target --all
