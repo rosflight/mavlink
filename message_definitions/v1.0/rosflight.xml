@@ -241,7 +241,7 @@
 		<field type="int32_t" name="vel_d"/> <!-- mm/s -->
 		<field type="uint32_t" name="h_acc"/> <!-- mm -->
 		<field type="uint32_t" name="v_acc"/> <!-- mm -->
-		<field type="uint32_t" name="vel_acc"/> <!-- mm -->
+		<field type="uint32_t" name="s_acc"/> <!-- mm -->
 	</message>
 	<message id="199" name="ROSFLIGHT_BATTERY_STATUS">
 		<field type="float" name="battery_voltage"/> <!-- V -->
