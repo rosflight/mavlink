@@ -233,8 +233,8 @@
 		<field type="uint8_t" name="min"/>
 		<field type="uint8_t" name="sec"/>
 		<field type="uint8_t" name="num_sat"/>
-		<field type="float" name="lat"/> <!-- deg DDS -->
-		<field type="float" name="lon"/> <!-- deg DDS -->
+		<field type="double" name="lat"/> <!-- deg DDS -->
+		<field type="double" name="lon"/> <!-- deg DDS -->
 		<field type="float" name="height"/> <!-- mm -->
 		<field type="float" name="vel_n"/> <!-- mm/s -->
 		<field type="float" name="vel_e"/> <!-- mm/s -->
