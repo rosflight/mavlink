@@ -235,13 +235,13 @@
 		<field type="uint8_t" name="num_sat"/>
 		<field type="double" name="lat"/> <!-- deg DDS -->
 		<field type="double" name="lon"/> <!-- deg DDS -->
-		<field type="float" name="height"/> <!-- mm -->
-		<field type="float" name="vel_n"/> <!-- mm/s -->
-		<field type="float" name="vel_e"/> <!-- mm/s -->
-		<field type="float" name="vel_d"/> <!-- mm/s -->
-		<field type="float" name="h_acc"/> <!-- mm -->
-		<field type="float" name="v_acc"/> <!-- mm -->
-		<field type="float" name="s_acc"/> <!-- mm -->
+		<field type="float" name="height"/> <!-- m -->
+		<field type="float" name="vel_n"/> <!-- m/s -->
+		<field type="float" name="vel_e"/> <!-- m/s -->
+		<field type="float" name="vel_d"/> <!-- m/s -->
+		<field type="float" name="h_acc"/> <!-- m -->
+		<field type="float" name="v_acc"/> <!-- m -->
+		<field type="float" name="s_acc"/> <!-- m -->
 	</message>
 	<message id="199" name="ROSFLIGHT_BATTERY_STATUS">
 		<field type="float" name="battery_voltage"/> <!-- V -->
